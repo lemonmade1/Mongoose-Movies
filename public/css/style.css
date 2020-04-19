@@ -5,7 +5,8 @@
 * {
   box-sizing: border-box;
   font-family: 'Orbitron';
-  color: #424748;
+  color: lime;
+  text-shadow: 1px 1px 1px black
 }
 
 body {
@@ -43,8 +44,8 @@ div#loggin {
 }
 
 body > main {
-  /* position: absolute;
-  top: 2em;*/
+  position: absolute;
+  top: 115px;
   z-index: 100; 
   grid-area: main;
   display: flex;
@@ -55,9 +56,11 @@ body > main {
   overflow-y: auto;
 }
 
-/* body > main h1:first-child {
+body > main h1:first-child {
   margin-bottom: 50px;
-} */
+  /* font-family: 'Snell Roundhand'; */
+  font-family: 'Dancing Script';
+}
 
 nav > a {
   margin: 20px;
@@ -94,6 +97,11 @@ nav > a.active {
   margin-left: auto;
 }
 
+label {
+  font-size: .8rem;
+  color: white;
+}
+
 table {
   font-size: 20px;
 }
@@ -114,7 +122,6 @@ table td {
 
 #list a {
   border-radius: 4px;
-  background-color: #B8C0C2;
   padding: 4px;
   text-decoration: none;
   font-size: 14px;
