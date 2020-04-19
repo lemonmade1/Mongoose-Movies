@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+<p>Please first ensure that you have not already scheduled an appointment your NAME and is not in the dropdown:
+  <select>
+    <% viewers.forEach(p => { %>
+      <option><%= p.name %> / <%= p.appt %></option>
+    <% }) %>
+  </select>
+</p>
+<form id="add-viewer-form" action="/viewers" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name">
+  <label>Date:</label>
+  <input type="date" name="appt">
+  <input type="submit" value="Add Appt">
+</form>
+
+<%- include('../partials/footer') %>

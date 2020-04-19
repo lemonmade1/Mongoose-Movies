@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const reviewSchema = new Schema({
+const commentSchema = new Schema({
   content: String,
-  rating: {
+  bedrooms: {
     type: Number, 
     min: 1, 
     max: 5, 
@@ -13,32 +13,31 @@ const reviewSchema = new Schema({
   timestamps: true
 });
 
-const movieSchema = new Schema({
-  title: {
+const buyerSchema = new Schema({
+  fullName: {
     type: String,
     required: true
   },
 
-  releaseYear: {
-    type: Number,
-    default: function () {
-      return new Date().getFullYear();
-    }
+  location: {
+    type: String
   },
 
-  mpaaRating: String,
-  nowShowing: { 
+  prRange: String,
+
+  viewNow: { 
     type: Boolean, 
     default: false 
   },
 
-  reviews: [reviewSchema],
-  cast: [{
+  comments: [commentSchema],
+
+  people: [{
     type: Schema.Types.ObjectId,
-    ref: 'Performer'
+    ref: 'Viewer'
   }],                                  
 }, {
   timestamps: true
 });
 
-module.exports = mongoose.model('Movie', movieSchema);
+module.exports = mongoose.model('Buyer', buyerSchema);

@@ -1,12 +1,20 @@
 const mongoose = require('mongoose');
+// const DATABASE_URL = 'mongodb://localhost/buyers';
+const DATABASE_URL = process.env.DATABASE_URL;
 
-mongoose.connect('mongodb://localhost/movies',
-  { useNewUrlParser: true, useCreateIndex: true }
+mongoose.connect(
+  DATABASE_URL,
+  { 
+    useNewUrlParser: true, 
+    useCreateIndex: true, 
+    useFindAndModify: false,
+    // useUnifiedTopology: true,
+  }
 );
 
 // shortcut to mongoose.connection object
 const db = mongoose.connection;
 
-db.on('connected', function () {
-  console.log(`Up and running on http://localhost:3000,  Connected to MongoDB at ${db.host}:${db.port}`);
+db.on('connected', () => {
+  console.log(`Connected to MongoDB at ${db.host}:${db.port}`);
 });

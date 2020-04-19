@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <title><%= title %></title>
+  <title> Lemon'made Estates </title>
+
+  <!-- Google Icon Fonts used by Materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  
+  <!-- JavaScript for Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  <!-- JAVASCRIPT -->
+  <script defer type="module" src="/build/main.js"></script>
+
+  <!-- CSS -->
+  <!-- <link type="text/css" rel="stylesheet" href="/css/3D.css"> -->
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <nav>
-    <img src="/images/camera.svg">
+    <a href="/viewers/new" <%- title === 'Add Appt' ? 'class="active"' : '' %>>ADD APPOINTMENT</a>
 
-    <a href="/performers/new" <%- title === 'Add Performer' ? 'class="active"' : '' %>>ADD PERFORMER</a>
+    <a href="/buyers/new" <%- title === 'Add Buyer' ? 'class="active"' : '' %>>ADD BUYER</a>
 
-    <a href="/movies/new" <%- title === 'Add Movie' ? 'class="active"' : '' %>>ADD MOVIE</a>
-
-    <a href="/movies" <%- title === 'All Movies' ? 'class="active"' : '' %>>ALL MOVIES</a>
+    <a href="/buyers" <%- title === 'All Buyers' ? 'class="active"' : '' %>>ALL BUYERS</a>
   </nav>
+
+  <div id="loggin">
+    <ul class="right XL">
+      <li>
+        <% if (user) { %>
+        <a class="logs" href="/logout"><i class="material-icons left">trending_flat</i> Log Out </a>
+        <% } else { %>
+        <a class="logs" href="/auth/google"><i class="material-icons left">vpn_key</i> Login with Google </a>
+        <% } %>
+      </li>
+    </ul>
+  </div>
 
   <main>
     <h1><%= title %></h1>
