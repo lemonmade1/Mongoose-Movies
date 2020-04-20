@@ -37,10 +37,10 @@ router.put('/:id',
   buyersCtrl.update
 );
 
-// router.delete("/:id", 
-//   // isLoggedIn,
-//   buyersCtrl.delComment
-// );
+router.delete("/:id", 
+  // isLoggedIn,
+  buyersCtrl.delComment
+);
 
 
 module.exports = router;

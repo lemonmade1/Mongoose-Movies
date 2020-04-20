@@ -22,7 +22,7 @@ const show = (req, res) => {
         }
       }, (err, viewers) => {
 
-        res.render('buyers/show', {
+        res.render('buyers/show',  {
           title: 'Buyer Detail',
           user: req.user,
           buyer,
@@ -49,7 +49,7 @@ const create = (req, res) => {
   const buyer = new Buyer(req.body);
   buyer.save((err) => {
     if (err) return res.redirect('/buyers/new');
-    res.redirect(`/buyers/${buyer._id}`, {
+    res.redirect(`/buyers/${buyer._id}`, 301, {
       user: req.user,
     });
   });
@@ -71,20 +71,20 @@ const update = (req, res) => {
   const updatedBuyer = Buyer.findByIdAndUpdate(req.params.id, req.body, {
     new: true
   }, () => {
-    res.redirect('/buyers', {
+    res.redirect('/buyers', 301,  {
       user: req.user,
     })
   })
 }
 
 // DELETE
-// const delComment = (req, res) => {
-//   Buyer.findByIdAndRemove(req.params.id, (err, data) => {
-//     res.redirect('/buyers', {
-//       user: req.user,
-//     });
-//   });
-// }
+const delComment = (req, res) => {
+  Buyer.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect('/buyers', 301, {
+      user: req.user,
+    });
+  });
+}
 
 
 module.exports = {
@@ -94,5 +94,5 @@ module.exports = {
   create,
   update, 
   editMe,
-  // delComment,
+  delComment,
 };

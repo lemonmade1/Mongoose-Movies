@@ -87,7 +87,7 @@ nav > a.active {
 #new-form *, #add-comment-form *,
 #add-viewer-form * {
   font-size: 20px;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
 }
 
@@ -95,6 +95,7 @@ nav > a.active {
   grid-column: span 2;
   width: 10rem;
   margin-left: auto;
+  background: green;
 }
 
 label {
@@ -141,6 +142,10 @@ table td {
   font-weight: bold;
 }
 
+input[type=submit] {
+  background: green;
+}
+
 #add-comment-form,#add-viewer-form {
   display: grid;
   grid-template-columns: auto auto;
@@ -150,8 +155,8 @@ table td {
 
 #add-comment-form input[type="submit"],
 #add-viewer-form input[type="submit"] {
-  width: 10rem;
   grid-column: 2 / 3;
+  background: green;
 }
 
 ul {
