@@ -2,25 +2,25 @@
 
 <section id="show-page">
   <div>Title: </div>
-  <div><%= movie.title %></div>
+  <div><%= flight.title %></div>
   <div>Release Year: </div>
-  <div><%= movie.releaseYear %></div>
+  <div><%= flight.releaseYear %></div>
   <div>Rating: </div>
-  <div><%= movie.mpaaRating %></div>
+  <div><%= flight.mpaaRating %></div>
   <div>Now Showing: </div>
-  <div><%= movie.nowShowing ? 'Yes' : 'Nope' %></div>
+  <div><%= flight.nowShowing ? 'Yes' : 'Nope' %></div>
 
   <!-- start cast list -->
   <div>Cast:</div>
   <ul>
-    <%- movie.cast.map(p => 
+    <%- flight.cast.map(p => 
       `<li>${p.name} <small>${p.born.toLocaleDateString()}</small></li>`
     ).join('') %>
   </ul>
   <!-- end cast list -->
 
   <!-- add to cast form below -->
-  <form id="add-per-to-cast" action="/movies/<%= movie._id%>/performers" method="POST">
+  <form id="add-per-to-cast" action="/flights/<%= flight._id%>/performers" method="POST">
     <select name="performerId">
       <%- performers.map(p => 
       `<option value="${p._id}">${p.name}</option>`
@@ -32,7 +32,7 @@
 
 <br><br>
 <h2>Reviews</h2>
-<form id="add-review-form" method="POST" action="/movies/<%= movie._id %>/reviews">
+<form id="add-review-form" method="POST" action="/flights/<%= flight._id %>/reviews">
   <label>Review:</label>
   <textarea name="content"></textarea>
   <label>Rating:</label>
@@ -46,7 +46,7 @@
   <input type="submit" value="Add Review">
 </form>
 
-<% if (movie.reviews.length) { %>
+<% if (flight.reviews.length) { %>
 <table>
   <thead>
     <tr>
@@ -57,7 +57,7 @@
   </thead>
   <tbody>
     <% let total = 0 %>
-    <% movie.reviews.forEach(function(r) { %>
+    <% flight.reviews.forEach(function(r) { %>
     <% total += r.rating %>
     <tr>
       <td><%= r.createdAt.toLocaleDateString() %></td>
@@ -67,7 +67,7 @@
     <% }); %>
     <tr>
       <td colspan="2"></td>
-      <td><strong><%= (total / movie.reviews.length).toFixed(1) %></strong></td>
+      <td><strong><%= (total / flight.reviews.length).toFixed(1) %></strong></td>
     </tr>
   </tbody>
 </table>

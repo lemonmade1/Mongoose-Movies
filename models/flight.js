@@ -13,7 +13,7 @@ const reviewSchema = new Schema({
   timestamps: true
 });
 
-const movieSchema = new Schema({
+const flightSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -41,4 +41,4 @@ const movieSchema = new Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('Movie', movieSchema);
+module.exports = mongoose.model('Flight', flightSchema);

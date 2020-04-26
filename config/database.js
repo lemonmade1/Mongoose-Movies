@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const DATABASE_URL = 'mongodb://localhost/movies';
+// const DATABASE_URL = 'mongodb://localhost/flights';
 const DATABASE_URL = process.env.DATABASE_URL;
 
 mongoose.connect(
@@ -8,7 +8,6 @@ mongoose.connect(
     useNewUrlParser: true, 
     useCreateIndex: true, 
     useFindAndModify: false,
-    // useUnifiedTopology: true,
   }
 );
 

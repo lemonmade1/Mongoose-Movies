@@ -1,7 +1,7 @@
-# Mongoose-Movies
+# Mongoose-Flights
 
 ## Wireframe "Main" WebSite. ##
-![wireframe](https://github.com/lemonmade1/Mongoose-Movies/blob/master/public/images/mongoose-movies.png)
+![wireframe]()
 
 ## Technology Used For Website ##
 ##### • HTML #####
@@ -12,7 +12,7 @@
 ##### • Node #####
 
 ## Author: ##
-### ![wireframe](https://github.com/lemonmade1/Lemon-made-Estates/blob/master/public/images/favicon.ico) Terrell D Lemons ### 
+### ![wireframe]() Terrell D Lemons ### 
   
 ## Website ##
-[Visit website](https://github.com/lemonmade1/Mongoose-Movies "Mongoose-Movies")
+[Visit website](https://github.com/lemonmade1/Mongoose-Flights "Mongoose-Flights")

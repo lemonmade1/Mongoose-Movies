@@ -5,14 +5,14 @@
  */
 
 var app = require('../server');
-var debug = require('debug')('mongoose-movies:server');
+var debug = require('debug')('mongoose-flightss:server');
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3333');
+var port = normalizePort(process.env.PORT || '4444');
 app.set('port', port);
 
 /**

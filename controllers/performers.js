@@ -1,5 +1,5 @@
 const Performer = require('../models/performer');
-const Movie = require('../models/movie');
+const Flight = require('../models/flight');
 
 const create = (req, res) => {
   const s = req.body.born;
@@ -19,10 +19,10 @@ const newPerformer = (req, res) => {
 }
 
 const addToCast = (req, res) => {
-  Movie.findById(req.params.id, (err, movie) => {
-    movie.cast.push(req.body.performerId);
-     movie.save((err) => {
-       res.redirect(`/movies/${movie._id}`);
+  Flight.findById(req.params.id, (err, flight) => {
+    flight.cast.push(req.body.performerId);
+     flight.save((err) => {
+       res.redirect(`/flights/${flight._id}`);
      });
   })
 }
