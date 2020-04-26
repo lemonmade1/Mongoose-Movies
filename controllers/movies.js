@@ -4,7 +4,9 @@ const Performer = require('../models/performer');
 
 const index = (req, res) => {
   Movie.find({}, (err, movies) => {
-    res.render('movies/index', { title: 'All Movies', movies });
+    res.render('movies/index', { 
+      title: 'All Movies', 
+      movies });
   });
 }
 
@@ -18,8 +20,8 @@ const show = (req, res) => {
         }
       }, (err, performers) => {
 
-        console.log(performers);
-        console.log(movie);
+        // console.log(performers);
+        // console.log(movie);
 
         res.render('movies/show', {
           title: 'Movie Detail',
@@ -46,14 +48,49 @@ const create = (req, res) => {
   const movie = new Movie(req.body);
   movie.save((err) => {
     if (err) return res.redirect('/movies/new');
-    console.log(movie);
+    // console.log(movie);
     res.redirect(`/movies/${movie._id}`);
   });
 }
+
+// EDIT
+const editMe = (req, res) => {
+  Movie.findById(req.params.id, (err, editMovie) => {
+    // console.log('editMovie', editMovie)
+    res.render('movies/edit', {
+      movie: editMovie,
+      title: 'Edit Me',
+      user: req.user
+    })
+  })
+}
+
+// UPDATE
+const update = (req, res) => {
+  const updatedMovie = Movie.findByIdAndUpdate(req.params.id, req.body, {
+    new: true
+  }, () => {
+   
+    res.redirect('/movies', 301)
+  })
+}
+
+// DELETE
+const delComment = (req, res) => {
+  Movie.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect('/movies', 301, {
+      user: req.user,
+    });
+  });
+}
+
 
 module.exports = {
   index,
   show,
   new: newMovie,
-  create
+  create,
+  update, 
+  editMe,
+  delComment,
 };
