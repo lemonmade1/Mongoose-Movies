@@ -1,7 +1,7 @@
 # Mongoose-Movies
 
 ## Wireframe "Main" WebSite. ##
-![wireframe](https://github.com/lemonmade1/Lemon-made-Estates/blob/master/public/images/wireFrame.png)
+![wireframe](https://github.com/lemonmade1/Mongoose-Movies/blob/master/public/images/mongoose-movies.png)
 
 ## Technology Used For Website ##
 ##### • HTML #####
