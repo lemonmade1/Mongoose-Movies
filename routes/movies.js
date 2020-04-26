@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const flightsCtrl = require('../controllers/flights');
+const flightsCtrl = require('../controllers/movies');
 
 router.get('/', flightsCtrl.index);
 

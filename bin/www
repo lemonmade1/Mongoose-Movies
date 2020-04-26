@@ -5,7 +5,7 @@
  */
 
 var app = require('../server');
-var debug = require('debug')('mongoose-flightss:server');
+var debug = require('debug')('mongoose-flights:server');
 var http = require('http');
 
 /**

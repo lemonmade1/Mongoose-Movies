@@ -1,31 +1,31 @@
-const Flight = require('../models/flight');
+const Flight = require('../models/movie');
 
 const Performer = require('../models/performer');
 
 const index = (req, res) => {
-  Flight.find({}, (err, flights) => {
-    res.render('flights/index', { 
-      title: 'All Flights', 
-      flights });
+  Flight.find({}, (err, movies) => {
+    res.render('movies/index', { 
+      title: 'All Movies', 
+      movies });
   });
 }
 
 const show = (req, res) => {
   Flight.findById(req.params.id)
     .populate('cast')
-    .exec((err, flight) => {
+    .exec((err, movie) => {
       Performer.find({
         _id: {
-          $nin: flight.cast
+          $nin: movie.cast
         }
       }, (err, performers) => {
 
         // console.log(performers);
-        // console.log(flight);
+        // console.log(movie);
 
-        res.render('flights/show', {
+        res.render('movies/show', {
           title: 'Flight Detail',
-          flight,
+          movie,
           performers
         });
       }
@@ -34,7 +34,7 @@ const show = (req, res) => {
 }
 
 const newFlight = (req, res) => {
-  res.render('flights/new', {
+  res.render('movies/new', {
     title: 'Add Flight'
   });
 }
@@ -45,19 +45,19 @@ const create = (req, res) => {
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key];
   }
-  const flight = new Flight(req.body);
-  flight.save((err) => {
-    if (err) return res.redirect('/flights/new');
+  const movie = new Flight(req.body);
+  movie.save((err) => {
+    if (err) return res.redirect('/movies/new');
   
-    res.redirect(`/flights/${flight._id}`);
+    res.redirect(`/movies/${movie._id}`);
   });
 }
 
 // EDIT
 const editMe = (req, res) => {
   Flight.findById(req.params.id, (err, editFlight) => {
-    res.render('flights/edit', {
-      flight: editFlight,
+    res.render('movies/edit', {
+      movie: editFlight,
       title: 'Edit Me',
       user: req.user
     })
@@ -70,14 +70,14 @@ const update = (req, res) => {
     new: true
   }, () => {
    
-    res.redirect('/flights', 301)
+    res.redirect('/movies', 301)
   })
 }
 
 // DELETE
 const delComment = (req, res) => {
   Flight.findByIdAndRemove(req.params.id, (err, data) => {
-    res.redirect('/flights', 301, {
+    res.redirect('/movies', 301, {
       user: req.user,
     });
   });

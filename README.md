@@ -1,4 +1,4 @@
-# Mongoose-Flights
+# Mongoose-Movies
 
 ## Wireframe "Main" WebSite. ##
 ![wireframe]()
@@ -15,4 +15,4 @@
 ### ![wireframe]() Terrell D Lemons ### 
   
 ## Website ##
-[Visit website](https://github.com/lemonmade1/Mongoose-Flights "Mongoose-Flights")
+[Visit website](https://github.com/lemonmade1/Mongoose-Movies "Mongoose-Movies")

@@ -9,7 +9,7 @@ require('dotenv').config()
 require('./config/database');
 
 const indexRouter = require('./routes/index');
-const flightsRouter = require('./routes/flights');
+const flightsRouter = require('./routes/movies');
 const reviewsRouter = require('./routes/reviews');
 const performersRouter = require('./routes/performers')
 
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // USE ROUTER
 app.use('/', indexRouter);
-app.use('/flights', flightsRouter);
+app.use('/movies', flightsRouter);
 app.use('/', reviewsRouter);
 app.use('/', performersRouter);
 
