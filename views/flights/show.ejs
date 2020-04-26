@@ -1,0 +1,85 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+  <div> Full Name: </div>
+  <div> <%= flight.fullName %> </div>
+
+  <div> Airline: </div>
+  <div> <%= flight.airline %> </div>
+  
+  <div> Airport: </div>
+  <div> <%= flight.airport %> </div>
+
+  <div> Flight Number: </div>
+  <div> <%= flight.flightNum %> </div>
+
+  <div> Departure Date: </div>
+  <div> <%= flight.departs %> </div>
+
+  <div> Now Boarding: </div>
+  <div> <%= flight.nowBoarding ? 'Yes' : 'No' %> </div>
+
+  <div>Flyer:</div>
+  <ul>
+    <%- flight.flyer.map(f => 
+      `<li>${f.name} <small>${f.born.toLocaleDateString()}</small></li>`
+    ).join('') %>
+  </ul>
+  
+  <form id="add-per-to-flyer" action="/flights/<%= flight._id%>/freqFlyrs" method="POST">
+    <select name="freqFlyrId">
+      <%- freqFlyrs.map(f => 
+      `<option value="${f._id}">${f.name}</option>`
+    ).join('') %>
+    </select>
+    <button type="submit">Add to Flyers</button>
+  </form>
+</section>
+
+<br><br>
+
+<h2>Postings</h2>
+<form id="add-posting-form" method="POST" action="/flights/<%= flight._id %>/postings">
+  <label>Posting:</label>
+  <textarea name="content"></textarea>
+  <label>Rating:</label>
+  <select name="rating">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <input type="submit" value="Add Posting">
+</form>
+
+<% if (flight.postings.length) { %>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Posting</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% let total = 0 %>
+    <% flight.postings.forEach(function(p) { %>
+    <% total += p.rating %>
+    <tr>
+      <td><%= p.createdAt.toLocaleDateString() %></td>
+      <td><%= p.content %></td>
+      <td><%= p.rating %></td>
+    </tr>
+    <% }); %>
+    <tr>
+      <td colspan="2"></td>
+      <td><strong><%= (total / flight.postings.length).toFixed(1) %></strong></td>
+    </tr>
+  </tbody>
+</table>
+<% } else { %>
+<h5>No Postings Yet</h5>
+<% } %>
+
+<%- include('../partials/footer') %>
