@@ -1,7 +1,11 @@
 # Mongoose-Movies
 
 ## Wireframe "Main" WebSite. ##
+
 ![wireframe](/Users/terrell/Desktop/STUDENT-DT-71/_DELIVERABLES/Mongoose-movies_C/public/images/mongoose-movies.png)
+
+![wireframe](https://github.com/lemonmade1/Mongoose-Movies/blob/master/public/images/mongoose-movies.png)
+
 
 ## Technology Used For Website ##
 ##### • HTML #####
