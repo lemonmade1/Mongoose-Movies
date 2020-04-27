@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const performersCtrl = require('../controllers/performers');
+const performerCTRL = require('../controllers/performers');
 
-router.get('/performers/new', performersCtrl.new);
-router.post('/performers', performersCtrl.create);
-router.post('/movies/:id/performers', performersCtrl.addToCast);
+router.get('/performers/new', performerCTRL.new);
+router.post('/performers', performerCTRL.create);
+router.post('/movies/:id/performers', performerCTRL.addToCast);
 
 module.exports = router;

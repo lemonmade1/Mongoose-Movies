@@ -1,10 +1,6 @@
 const Movie = require('../models/movie');
 
-module.exports = {
-  create
-};
-
-function create(req, res) {
+const create = (req, res) => {
   Movie.findById(req.params.id, function(err, movie) {
     movie.reviews.push(req.body);
     movie.save(function(err) {
@@ -12,3 +8,7 @@ function create(req, res) {
     });
   });
 }
+
+module.exports = {
+  create
+};

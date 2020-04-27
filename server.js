@@ -9,7 +9,8 @@ require('dotenv').config()
 require('./config/database');
 
 const indexRouter = require('./routes/index');
-const flightsRouter = require('./routes/movies');
+
+const moviesRouter = require('./routes/movies');
 const reviewsRouter = require('./routes/reviews');
 const performersRouter = require('./routes/performers')
 
@@ -28,9 +29,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // USE ROUTER
 app.use('/', indexRouter);
-app.use('/movies', flightsRouter);
+app.use('/movies', moviesRouter);
 app.use('/', reviewsRouter);
 app.use('/', performersRouter);
+
 
 // CATCH 404 AND FORWARD TO ERROR HANDLER
 app.use((req, res, next) => {

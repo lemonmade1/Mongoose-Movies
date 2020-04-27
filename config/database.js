@@ -10,7 +10,6 @@ mongoose.connect(
   }
 );
 
-// shortcut to mongoose.connection object
 const db = mongoose.connection;
 
 db.on('connected', () => {

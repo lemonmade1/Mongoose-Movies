@@ -1,19 +1,10 @@
-const router = require('express').Router();
-const flightsCtrl = require('../controllers/movies');
+const express = require('express');
+const router = express.Router();
+const movieCTRL = require('../controllers/movies');
 
-router.get('/', flightsCtrl.index);
-
-router.get('/new', flightsCtrl.new);
-
-router.get('/:id', flightsCtrl.show);
-
-router.post('/', flightsCtrl.create);
-
-router.get('/:id/edit', flightsCtrl.editMe);
-
-router.put('/:id', flightsCtrl.update);
-
-router.delete("/:id", flightsCtrl.delComment);
-
+router.get('/', movieCTRL.index);
+router.get('/new', movieCTRL.new);
+router.get('/:id', movieCTRL.show);
+router.post('/', movieCTRL.create);
 
 module.exports = router;

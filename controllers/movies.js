@@ -1,5 +1,4 @@
 const Movie = require('../models/movie');
-
 const Performer = require('../models/performer');
 
 const index = (req, res) => {
@@ -10,6 +9,7 @@ const index = (req, res) => {
   });
 }
 
+// SHOW NEW MOVIE
 const show = (req, res) => {
   Movie.findById(req.params.id)
     .populate('cast')
@@ -19,9 +19,6 @@ const show = (req, res) => {
           $nin: movie.cast
         }
       }, (err, performers) => {
-
-        // console.log(performers);
-        // console.log(movie);
 
         res.render('movies/show', {
           title: 'Movie Detail',
@@ -33,13 +30,16 @@ const show = (req, res) => {
    });
 }
 
+// CREATE NEW MOVIE
 const newMovie = (req, res) => {
   res.render('movies/new', {
     title: 'Add Movie'
   });
 }
 
+// CREATE
 const create = (req, res) => {
+
   // convert nowShowing's checkbox of nothing or "on" to boolean
   req.body.nowShowing = !!req.body.nowShowing;
   for (let key in req.body) {
