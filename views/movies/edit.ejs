@@ -6,7 +6,10 @@
 
   <input name="done" type="checkbox" <%= movie.done ? 'checked' : '' %> />
 
-  <button class="editClass" type="submit"> Update Movies </button>
+  <label>Now Showing:</label>
+  <input type="checkbox" name="nowShowing" checked>
+
+  <input type="submit" value="Edit Movie">
 </form>
 
 <%- include('../partials/footer') %>

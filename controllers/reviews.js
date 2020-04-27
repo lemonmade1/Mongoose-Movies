@@ -1,10 +1,10 @@
 const Movie = require('../models/movie');
 
 const create = (req, res) => {
-  Movie.findById(req.params.id, function(err, movie) {
+  Movie.findById(req.params.id, (err, movie) => {
     movie.reviews.push(req.body);
-    movie.save(function(err) {
-      res.redirect(`/movies/${movie._id}`);
+    movie.save((err) => {
+      res.redirect(`/movies/${movie._id}`, 301);
     });
   });
 }

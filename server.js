@@ -9,7 +9,6 @@ require('dotenv').config()
 require('./config/database');
 
 const indexRouter = require('./routes/index');
-
 const moviesRouter = require('./routes/movies');
 const reviewsRouter = require('./routes/reviews');
 const performersRouter = require('./routes/performers')
