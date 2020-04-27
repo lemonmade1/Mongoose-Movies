@@ -1,7 +1,6 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
   res.redirect('/movies');
 });
 

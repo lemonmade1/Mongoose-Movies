@@ -2,8 +2,6 @@
 
 ## Wireframe "Main" WebSite. ##
 
-![wireframe](/Users/terrell/Desktop/STUDENT-DT-71/_DELIVERABLES/Mongoose-movies_C/public/images/mongoose-movies.png)
-
 ![wireframe](https://github.com/lemonmade1/Mongoose-Movies/blob/master/public/images/mongoose-movies.png)
 
 
@@ -16,7 +14,7 @@
 ##### • Node #####
 
 ## Author: ##
-### ![wireframe]() Terrell D Lemons ### 
+### ![wireframe](https://github.com/lemonmade1/Mongoose-Movies/blob/master/public/images/favicon.ico) Terrell D Lemons ### 
   
 ## Website ##
 [Visit website](https://github.com/lemonmade1/Mongoose-Movies "Mongoose-Movies")

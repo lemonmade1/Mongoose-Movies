@@ -53,6 +53,8 @@ nav > a {
 nav > a:hover {
   color: white;
   background-color: #424748;
+  height: 100%;
+  border-radius: 0;
 }
 
 nav > a.active {
@@ -65,7 +67,8 @@ nav > a.active {
   grid-template-columns: repeat(2, minmax(auto, 22rem));
 }
 
-#new-form *, #add-review-form *,
+#new-form *,
+#add-review-form *,
 #add-performer-form * {
   font-size: 20px;
   padding: 5px;
@@ -118,7 +121,8 @@ table td {
   font-weight: bold;
 }
 
-#add-review-form,#add-performer-form {
+#add-review-form,
+#add-performer-form {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1rem;
@@ -141,9 +145,4 @@ li {
   font-weight: bold;
 }
 
-/* =============================== */
 
-nav > a:hover {
-  height: 100%;
-  border-radius: 0;
-}

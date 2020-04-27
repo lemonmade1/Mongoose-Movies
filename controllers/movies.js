@@ -1,15 +1,17 @@
 const Movie = require('../models/movie');
-
 const Performer = require('../models/performer');
 
 const index = (req, res) => {
   Movie.find({}, (err, movies) => {
     res.render('movies/index', { 
       title: 'All Movies', 
-      movies });
+      user: req.user,
+      movies 
+    });
   });
 }
 
+// SHOW NEW MOVIE
 const show = (req, res) => {
   Movie.findById(req.params.id)
     .populate('cast')
@@ -20,25 +22,26 @@ const show = (req, res) => {
         }
       }, (err, performers) => {
 
-        // console.log(performers);
-        // console.log(movie);
-
         res.render('movies/show', {
           title: 'Movie Detail',
+          user: req.user,
           movie,
-          performers
+          performers,
         });
       }
     );
    });
 }
 
+// CREATE NEW MOVIE
 const newMovie = (req, res) => {
   res.render('movies/new', {
-    title: 'Add Movie'
+    title: 'Add Movie',
+    user: req.user,
   });
 }
 
+// CREATE
 const create = (req, res) => {
   // convert nowShowing's checkbox of nothing or "on" to boolean
   req.body.nowShowing = !!req.body.nowShowing;
@@ -49,15 +52,17 @@ const create = (req, res) => {
   movie.save((err) => {
     if (err) return res.redirect('/movies/new');
   
-    res.redirect(`/movies/${movie._id}`);
+    res.redirect(`/movies/${movie._id}`, 301, {
+      user: req.user
+    });
   });
 }
 
 // EDIT
 const editMe = (req, res) => {
-  Movie.findById(req.params.id, (err, editFlight) => {
+  Movie.findById(req.params.id, (err, editMovie) => {
     res.render('movies/edit', {
-      movie: editFlight,
+      movie: editMovie,
       title: 'Edit Me',
       user: req.user
     })
@@ -66,11 +71,12 @@ const editMe = (req, res) => {
 
 // UPDATE
 const update = (req, res) => {
-  const updatedMovie = Movie.findByIdAndUpdate(req.params.id, req.body, {
+  Movie.findByIdAndUpdate(req.params.id, req.body, {
     new: true
   }, () => {
-   
-    res.redirect('/movies', 301)
+    res.redirect('/movies', 301, {
+      user: req.user
+    })
   })
 }
 
@@ -89,7 +95,7 @@ module.exports = {
   show,
   new: newMovie,
   create,
-  update, 
   editMe,
+  update, 
   delComment,
 };
