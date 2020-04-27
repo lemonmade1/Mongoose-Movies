@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<form id="editForm" action="/movies/<%= idx %>?_method=PUT" method="POST" autocomplete="on">
+<form id="editForm" action="/movies/<%= movie.id %>?_method=PUT" method="POST" autocomplete="on">
 
   <input class="editClass" name="movie" type="text" value="<%= movie.movie %>">
 

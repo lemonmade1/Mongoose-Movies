@@ -5,7 +5,8 @@ const performerSchema = new Schema({
   name: {
     type: String, 
     required: true, 
-    unique: true},
+    unique: true
+  },
     born: Date
   }, 
   {
