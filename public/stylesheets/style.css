@@ -69,7 +69,8 @@ nav > a.active {
 
 #new-form *,
 #add-review-form *,
-#add-performer-form * {
+#add-performer-form *,
+#editForm * {
   font-size: 20px;
   padding: 5px;
   border-radius: 5px;
@@ -145,4 +146,12 @@ li {
   font-weight: bold;
 }
 
+#editForm {
+  width: 80%;
+  height: 200px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+}
 

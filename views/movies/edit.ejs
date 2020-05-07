@@ -1,11 +1,17 @@
 <%- include('../partials/header') %>
 
 <form id="editForm" action="/movies/<%= movie.id %>?_method=PUT" method="POST" autocomplete="on">
-  <label>Title:</label>
-  <input type="text" name="title" value="<%=movie.title%>">
-  <label>Release Year:</label>
-  <input type="text" name="releaseYear" value="<%=movie.releaseYear%>">
-  <input type="submit" value="Update Movie">
+  <div>
+    <label>Title:</label>
+    <input type="text" name="title" value="<%=movie.title%>">
+  </div>
+  <div>
+    <label>Release Year:</label>
+    <input type="text" name="releaseYear" value="<%=movie.releaseYear%>">
+  </div>
+  <div>
+    <input type="submit" value="Update Movie">
+  </div>  
 </form>
 
 <%- include('../partials/footer') %>
