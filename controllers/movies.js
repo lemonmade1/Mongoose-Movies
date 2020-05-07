@@ -11,7 +11,7 @@ const index = (req, res) => {
   });
 }
 
-// SHOW NEW MOVIE
+// SHOW MOVIE LIST
 const show = (req, res) => {
   Movie.findById(req.params.id)
     .populate('cast')

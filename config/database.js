@@ -10,8 +10,6 @@ mongoose.connect(
   }
 );
 
-const db = mongoose.connection;
-
-db.on('connected', () => {
+mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB at ${db.host}:${db.port}`);
 });
