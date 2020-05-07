@@ -1,15 +1,11 @@
 <%- include('../partials/header') %>
 
 <form id="editForm" action="/movies/<%= movie.id %>?_method=PUT" method="POST" autocomplete="on">
-
-  <input class="editClass" name="movie" type="text" value="<%= movie.movie %>">
-
-  <input name="done" type="checkbox" <%= movie.done ? 'checked' : '' %> />
-
-  <label>Now Showing:</label>
-  <input type="checkbox" name="nowShowing" checked>
-
-  <input type="submit" value="Edit Movie">
+  <label>Title:</label>
+  <input type="text" name="title" value="<%=movie.title%>">
+  <label>Release Year:</label>
+  <input type="text" name="releaseYear" value="<%=movie.releaseYear%>">
+  <input type="submit" value="Update Movie">
 </form>
 
 <%- include('../partials/footer') %>
