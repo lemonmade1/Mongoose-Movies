@@ -51,7 +51,7 @@
     </thead>
     <tbody>
       <% let total = 0 %>
-      <% movie.reviews.forEach(function(r) { %>
+      <% movie.reviews.forEach((r) => { %>
         <% total += r.rating %>
         <tr>
           <td><%= r.createdAt.toLocaleDateString() %></td>
